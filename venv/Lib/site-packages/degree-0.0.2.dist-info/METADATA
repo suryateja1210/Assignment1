@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: degree
+Version: 0.0.2
+Summary: network/graph node degree analysis
+Home-page: https://github.com/thorwhalen/ut/blob/master/stats/networks/degree_distribution.py
+Author: Thor Whalen
+License: mit
+Platform: any
+Description-Content-Type: text/markdown
+
+
+# degree
+network/graph node degree analysis
+
+
+To install:	```pip install degree```
+
+

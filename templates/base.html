@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Assignment 2</title>
+</head>
+<body>
+
+<h1 style="text-align: center;">Username</h1>
+<h1 style="text-align: center;">Roll No</h1>
+
+<b>EarthQuakes more than Magnitude 5.0</b><br><br>
+<form action="/Above5" method="POST">
+    <input type="submit" value="submit">
+</form><br> <br>
+
+<b>EarthQuakes in group of magnitude</b><br><br>
+<form action="/between" method="POST">
+    <label for="magfrom">Mag Range from:</label>
+    <input type="text" id="magfrom" name="magfrom" required><br>
+    <label for="magto">Mag Range to:</label>
+    <input type="text" id="magto" name="magto" required><br>
+    <input type="submit" value="Submit">
+</form><br><br>
+
+<b>Earthquakes near me</b><br><br>
+<form action="/calGeoDistance" method="POST">
+    <label for="latitude"> Latitude: </label>
+    <input id="latitude" type="text" name="latitude" required>
+    <label for="longitude"> Longitude: </label>
+    <input type="text" id="longitude" name="longitude" required>
+    <label for="distance"> Distance(km): </label>
+    <input type="text" id="distance" name="distance" required>
+    <input type="submit" name="Find">
+</form><br>
+
+<button type="button" onclick="getMyLocation()"> Find my location </button>
+<script>
+var x = document.getElementById("error");
+var latitude = document.getElementById("latitude");
+var longitude = document.getElementById("longitude");
+function getMyLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else
+    {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position)
+{
+    latitude.value = position.coords.latitude;
+    longitude.value = position.coords.longitude;
+}
+</script>
+<br><br>
+
+
+<b>CLUSTERS</b><br><br>
+<form method="GET" action="/api/clusters">
+    <label>From: </label>
+    <input type="text" name="from_latitude" id="from_latitude">
+    <input type="text" name="from_longitude" id="from_longitude">
+    <br/> <label>To: </label>
+    <input type="text" name="to_latitude" id="to_latitude">
+    <input type="text" name="to_longitude" id="to_longitude">
+    <br/> <label>Square Area(sq km): </label>
+    <input type="text" name="area" id="area">
+    <input type="submit" value="Clusterize">
+</form><br>
+
+<b>EarthQuakes in group of Dates</b><br><br>
+<form action="/daterange" method="POST">
+    <input type="date" name="from_date" required>
+    <input type="date" name="to_date" required>
+    <input type="submit" value="Submit">
+</form><br><br>
+<b><p>Hour Map</p></b>
+<form method="POST" action="/hourHistogram">
+    <input type="submit" value="Check" name="Check">
+</form>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

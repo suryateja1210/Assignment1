@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<p>Number of earthquaqes occured between {{magfrom}} and {{magto}} magnitude is equal to <b>{{count}}</b></p>
+<table border="1">
+    <tr>
+        <th>Time</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th>Depth</th>
+        <th>Mag</th>
+        <th>MagType</th>
+        <th>NST</th>
+        <th>Gap</th>
+        <th>Dmin</th>
+        <th>rms</th>
+        <th>net</th>
+        <th>id</th>
+        <th>Updated</th>
+        <th>Place</th>
+        <th>Type</th>
+        <th>horizontalError</th>
+        <th>DepthError</th>
+        <th>MagError</th>
+        <th>MagNst</th>
+        <th>Status</th>
+        <th>LocationSource</th>
+        <th>MagSource</th>
+    </tr>
+    {% for value in data %}
+    <tr>
+        <td>{{value[0]}}</td>
+        <td>{{value[1]}}</td>
+        <td>{{value[2]}}</td>
+        <td>{{value[3]}}</td>
+        <td>{{value[4]}}</td>
+        <td>{{value[5]}}</td>
+        <td>{{value[6]}}</td>
+        <td>{{value[7]}}</td>
+        <td>{{value[8]}}</td>
+        <td>{{value[9]}}</td>
+        <td>{{value[10]}}</td>
+        <td>{{value[11]}}</td>
+        <td>{{value[12]}}</td>
+        <td>{{value[13]}}</td>
+        <td>{{value[14]}}</td>
+        <td>{{value[15]}}</td>
+        <td>{{value[16]}}</td>
+        <td>{{value[17]}}</td>
+        <td>{{value[18]}}</td>
+        <td>{{value[19]}}</td>
+        <td>{{value[20]}}</td>
+        <td>{{value[21]}}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+
+</body>
+</html>
